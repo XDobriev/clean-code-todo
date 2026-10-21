@@ -7,7 +7,6 @@ body {
 .aaa {
   width: 500px;
   margin: 0 auto;
-  display: block;
   text-align: right;
 }
 .aaa img {
@@ -23,13 +22,10 @@ body {
   }
 }
 .centered-main-page-element {
-  display: block;
   width: 500px;
   margin: 0 auto 0;
 }
 .task {
-  width: 56%;
-  display: inline-block;
   flex-grow: 1;
 }
 .task-row-wrapper {
@@ -39,8 +35,7 @@ ul {
   margin: 0;
   padding: 0px;
 }
-li,
-h3 {
+li {
   list-style: none;
 }
 input,
@@ -105,10 +100,6 @@ li {
   justify-content: space-between;
   align-items: center;
 }
-li > * {
-  vertical-align: middle;
-}
-
 li > input[type='checkbox'] {
   margin: 0 10px;
 }
