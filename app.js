@@ -41,12 +41,12 @@ const addTask = function () {
   taskInput.value = '';
 };
 
-const toggleTaskEditing = function () {
-  const listItem = this.parentNode;
+const toggleTaskEditing = function (event) {
+  const editButton = event.currentTarget;
+  const listItem = editButton.closest('li');
 
   const editInput = listItem.querySelector('input[type=text]');
   const label = listItem.querySelector('label');
-  const editButton = listItem.querySelector('.edit');
   const isEditing = listItem.classList.contains('edit-mode');
   if (isEditing) {
     label.innerText = editInput.value;
@@ -59,13 +59,14 @@ const toggleTaskEditing = function () {
   listItem.classList.toggle('edit-mode');
 };
 
-const deleteTask = function () {
-  this.parentNode.remove();
+const deleteTask = function (event) {
+  event.currentTarget.closest('li').remove();
 };
 
-const toggleTaskCompletion = function () {
-  const listItem = this.parentNode;
-  const targetList = this.checked ? completedList : todoList;
+const toggleTaskCompletion = function (event) {
+  const checkbox = event.currentTarget;
+  const listItem = checkbox.closest('li');
+  const targetList = checkbox.checked ? completedList : todoList;
   targetList.appendChild(listItem);
 };
 
