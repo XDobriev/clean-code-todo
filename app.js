@@ -4,36 +4,30 @@ const todoList = document.getElementById('todo-tasks');
 const completedList = document.getElementById('completed-tasks');
 
 const createTaskItem = function (text) {
-  const listItem = document.createElement('li');
-
   const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+
   const label = document.createElement('label');
-  const editInput = document.createElement('input');
-  const editButton = document.createElement('button');
-
-  const deleteButton = document.createElement('button');
-  const deleteIcon = document.createElement('img');
-
+  label.className = 'task';
   // innerText, not innerHTML: the task text comes from the user and must not be parsed as markup
   label.innerText = text;
-  label.className = 'task';
 
-  checkbox.type = 'checkbox';
+  const editInput = document.createElement('input');
   editInput.type = 'text';
   editInput.className = 'task';
 
-  editButton.innerText = 'Edit';
+  const editButton = document.createElement('button');
   editButton.className = 'edit';
+  editButton.innerText = 'Edit';
 
-  deleteButton.className = 'delete';
+  const deleteIcon = document.createElement('img');
   deleteIcon.src = './remove.svg';
-  deleteButton.appendChild(deleteIcon);
+  const deleteButton = document.createElement('button');
+  deleteButton.className = 'delete';
+  deleteButton.append(deleteIcon);
 
-  listItem.appendChild(checkbox);
-  listItem.appendChild(label);
-  listItem.appendChild(editInput);
-  listItem.appendChild(editButton);
-  listItem.appendChild(deleteButton);
+  const listItem = document.createElement('li');
+  listItem.append(checkbox, label, editInput, editButton, deleteButton);
   return listItem;
 };
 
