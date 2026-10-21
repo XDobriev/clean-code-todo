@@ -69,8 +69,6 @@ const toggleTaskCompletion = function () {
   targetList.appendChild(listItem);
 };
 
-addButton.addEventListener('click', addTask);
-
 const bindTaskEvents = function (listItem) {
   const checkbox = listItem.querySelector('input[type=checkbox]');
   const editButton = listItem.querySelector('button.edit');
@@ -80,6 +78,8 @@ const bindTaskEvents = function (listItem) {
   deleteButton.onclick = deleteTask;
   checkbox.onchange = toggleTaskCompletion;
 };
+
+addButton.addEventListener('click', addTask);
 
 for (const listItem of [...todoList.children, ...completedList.children]) {
   bindTaskEvents(listItem);
