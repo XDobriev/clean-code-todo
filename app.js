@@ -60,9 +60,7 @@ const toggleTaskEditing = function () {
 };
 
 const deleteTask = function () {
-  const listItem = this.parentNode;
-  const list = listItem.parentNode;
-  list.removeChild(listItem);
+  this.parentNode.remove();
 };
 
 const toggleTaskCompletion = function () {
